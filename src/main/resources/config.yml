@@ -1,0 +1,49 @@
+#-------------------------------------------------
+#                 Wardrobe Config                -
+#-------------------------------------------------
+
+Admin-Permission: Wardrobe.Admin
+Total-Slots: 18
+Wardrobe-Title: "Wardrobe (%Current_Page%/%Total_Page%)"
+#---------------Data-Base-----------------
+Data-Base:
+  # MySQL
+  Enabled: false
+  Type: MySQL
+  Host: "localhost"
+  Port: "3306" #3308
+  Database: "lucfrplugins"
+  Username: "root"
+  Password: ""
+#------------Slot-Permission--------------
+Enable-Require-Prefix: true
+Slot-Permission:
+  1-2:
+    Permission: group.default
+    Require-Prefix: "&7DEFAULT"
+  3-5:
+    Permission: group.vip
+    Require-Prefix: "&aVIP"
+  6-9:
+    Permission: group.vip+
+    Require-Prefix: "&aVIP+"
+  10-13:
+    Permission: group.mvp
+    Require-Prefix: "&bMVP"
+  14-18:
+    Permission: group.mvp+
+    Require-Prefix: "&bMVP&c+"
+#--------------Item-Check-----------------
+Allow-Item:
+  # set "none" to skip this check
+  # it will allow an item if it passes all of these check
+  Helmet: # default allow items: all kinds of helmet
+    Type:
+      - "GLASS"
+    # if an item has this check it will allow it to be put into the GUI no matter if it does not contain the top check
+    Lore: "HELMET"
+Black-List:
+  Lore: none # no list support
+  Enchantment: none
+  #  - BINDING_CURSE
+  #  - VANISHING_CURSE

@@ -1,0 +1,16 @@
+name: LWardrobe
+version: '${project.version}'
+main: me.LucFr.LWardrobe.LWardrobe
+api-version: 1.16
+softdepend: [ PlaceholderAPI, AureliumSkills ]
+authors: [ LucFr ]
+
+commands:
+  wardrobe:
+    aliases: wr
+    permission: wardrobe.use
+permissions:
+  wardrobe.*:
+    description: Gives access to all Wardrobe commands
+    children:
+      wardrobe.use: true

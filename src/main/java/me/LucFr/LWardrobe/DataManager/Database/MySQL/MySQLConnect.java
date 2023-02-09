@@ -1,0 +1,80 @@
+package me.LucFr.LWardrobe.DataManager.Database.MySQL;
+
+import me.LucFr.LWardrobe.FileManager.Config;
+import me.LucFr.LWardrobe.LWardrobe;
+
+import java.sql.*;
+
+public class MySQLConnect {
+
+    private final String host;
+    private final String port;
+    private final String database;
+    private final String username;
+    private final String password;
+
+    public MySQLConnect(){
+        host = Config.dbHost;
+        port = Config.dbPort;
+        database = Config.dbDatabase;
+        username = Config.dbUsername;
+        password = Config.dbPassword;
+        try {
+            connect();
+        } catch (SQLException e) {
+            LWardrobe.getInstance.getLogger().warning("Failed to connect to MySQL!");
+        }
+        if (isConnected()) {
+            try {
+                if (!hasDatabase()){
+                    LWardrobe.getInstance.getLogger().warning("There is no database named: " + database);
+                }
+            } catch (SQLException e) {
+                LWardrobe.getInstance.getLogger().warning("Failed to connect to MySQL!");
+            }
+        }
+    }
+
+    public void shutdown() {
+        disconnect();
+    }
+
+    private static Connection connection;
+
+    private static boolean isConnected() {
+        return (connection != null);
+    }
+
+    public void connect() throws SQLException {
+        if (!isConnected()) {
+            connection = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database + "?useSSL=false", username, password);
+            LWardrobe.getInstance.getLogger().info("Successfully connected to MySQL!");
+        }
+    }
+
+    private boolean hasDatabase() throws SQLException {
+        //Getting the connection
+        Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port, username, password);
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery("SHOW DATABASES");
+        while(rs.next()) {
+            if (rs.getString(1).equals(database)) return true;
+        }
+        return false;
+    }
+
+    private void disconnect() {
+        if (isConnected()) {
+            try {
+                connection.close();
+                LWardrobe.getInstance.getLogger().info("Successfully disconnected MySQL!");
+            } catch (SQLException e) {
+                LWardrobe.getInstance.getLogger().warning("Failed to disconnect MySQL!");
+            }
+        }
+    }
+
+    public static Connection getConnection() {
+        return connection;
+    }
+}
