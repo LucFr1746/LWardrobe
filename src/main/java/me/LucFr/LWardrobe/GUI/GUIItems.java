@@ -3,7 +3,7 @@ package me.LucFr.LWardrobe.GUI;
 import me.LucFr.LWardrobe.DataManager.Files.PlayerData;
 import me.LucFr.LWardrobe.FileManager.Config;
 import me.LucFr.LWardrobe.NMS.NMSMaterial;
-import me.LucFr.LWardrobe.Utils.DataConvert;
+import me.LucFr.LWardrobe.Utils.DataConverter;
 import me.LucFr.LWardrobe.Utils.GUI.ArmorCheck;
 import me.LucFr.LWardrobe.Utils.ServerVersion;
 import me.LucFr.LWardrobe.Utils.TextWork;
@@ -105,7 +105,7 @@ public class GUIItems {
         int armorSlot = Math.floorDiv(slot, 9);
         String slotBase64 = this.playerData.getString("Slot-" + slotHolder + ".Armors");
         try {
-            return DataConvert.itemStackArrayFromBase64(slotBase64)[armorSlot];
+            return DataConverter.itemStackArrayFromBase64(slotBase64)[armorSlot];
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

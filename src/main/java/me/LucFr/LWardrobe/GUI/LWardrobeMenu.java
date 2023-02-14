@@ -2,7 +2,7 @@ package me.LucFr.LWardrobe.GUI;
 
 import me.LucFr.LWardrobe.DataManager.Files.PlayerData;
 import me.LucFr.LWardrobe.FileManager.Config;
-import me.LucFr.LWardrobe.Utils.DataConvert;
+import me.LucFr.LWardrobe.Utils.DataConverter;
 import me.LucFr.LWardrobe.Utils.GUI.ButtonCheck;
 import me.LucFr.LWardrobe.Utils.TextWork;
 import org.bukkit.Bukkit;
@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class WardrobeMenu implements InventoryHolder {
+public class LWardrobeMenu implements InventoryHolder {
 
     public static HashMap<UUID, Integer> playerCurrentPage = new HashMap<>();
 
@@ -27,7 +27,7 @@ public class WardrobeMenu implements InventoryHolder {
         return null;
     }
 
-    public WardrobeMenu() {
+    public LWardrobeMenu() {
         new GUIItems();
     }
 
@@ -40,7 +40,7 @@ public class WardrobeMenu implements InventoryHolder {
         PlayerData data = new PlayerData(player.getPlayer().getUniqueId());
         YamlConfiguration playerData = data.getPlayerData();
         if (ButtonCheck.getEquippedSlot(playerData) != -1) {
-            playerData.set("Slot-" + ButtonCheck.getEquippedSlot(playerData) + ".Armors", DataConvert.itemStackArrayToBase64(player.getInventory().getArmorContents()));
+            playerData.set("Slot-" + ButtonCheck.getEquippedSlot(playerData) + ".Armors", DataConverter.itemStackArrayToBase64(player.getInventory().getArmorContents()));
             data.saveData();
         }
 

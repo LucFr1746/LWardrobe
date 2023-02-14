@@ -1,5 +1,6 @@
 package me.LucFr.LWardrobe.FileManager;
 
+import me.LucFr.LWardrobe.DataManager.Database.DatabaseHandler;
 import me.LucFr.LWardrobe.DataManager.Database.MySQL.MySQLConnect;
 import me.LucFr.LWardrobe.LWardrobe;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -76,9 +77,7 @@ public class Config {
         dbDatabase = getConfig().getString("Data-Base.Database");
         dbUsername = getConfig().getString("Data-Base.Username");
         dbPassword = getConfig().getString("Data-Base.Password");
-        if (dbEnabled && dbType.equals("MySQL")) {
-            new MySQLConnect();
-        }
+        new DatabaseHandler(dbDatabase, dbHost, dbPort, dbDatabase, dbUsername, dbPassword);
 
         adminPermission = getConfig().getString("Admin-Permission");
         totalPage = (int) Math.ceil(getConfig().getDouble("Total-Slots")/9);
@@ -111,7 +110,7 @@ public class Config {
 
     public void shutdown() {
         if (dbEnabled && dbType.equals("MySQL")) {
-            new MySQLConnect().shutdown();
+            MySQLConnect.shutdown();
         }
     }
 }

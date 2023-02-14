@@ -3,7 +3,7 @@ package me.LucFr.LWardrobe.DataManager.Files;
 
 import me.LucFr.LWardrobe.FileManager.Config;
 import me.LucFr.LWardrobe.LWardrobe;
-import me.LucFr.LWardrobe.Utils.DataConvert;
+import me.LucFr.LWardrobe.Utils.DataConverter;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
 
@@ -48,7 +48,7 @@ public class PlayerData {
     public void prepareData() {
         YamlConfiguration playerData = playerYAML.get(this.targetUUID);
         for (int i = 1; i <= Config.totalSlot; i++) {
-            playerData.set("Slot-" + i + ".Armors", DataConvert.itemStackArrayToBase64(new ItemStack[4]));
+            playerData.set("Slot-" + i + ".Armors", DataConverter.itemStackArrayToBase64(new ItemStack[4]));
             playerData.set("Slot-" + i + ".Button", "empty");
         }
     }

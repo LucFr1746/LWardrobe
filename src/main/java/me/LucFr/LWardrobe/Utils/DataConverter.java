@@ -9,7 +9,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-public class DataConvert {
+public class DataConverter {
 
     public static String itemStackArrayToBase64(ItemStack[] items) throws IllegalStateException {
         try {

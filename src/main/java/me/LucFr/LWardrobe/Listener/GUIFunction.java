@@ -2,7 +2,7 @@ package me.LucFr.LWardrobe.Listener;
 
 import me.LucFr.LWardrobe.FileManager.Lang;
 import me.LucFr.LWardrobe.GUI.GUIItems;
-import me.LucFr.LWardrobe.GUI.WardrobeMenu;
+import me.LucFr.LWardrobe.GUI.LWardrobeMenu;
 import me.LucFr.LWardrobe.LWardrobe;
 import me.LucFr.LWardrobe.Utils.GUI.ArmorCheck;
 import me.LucFr.LWardrobe.Utils.GUI.ButtonCheck;
@@ -21,19 +21,19 @@ import org.jetbrains.annotations.NotNull;
 
 public class GUIFunction implements Listener {
 
-    public static WardrobeMenu menu;
+    public static LWardrobeMenu menu;
     public LWardrobe plugin;
 
     public GUIFunction(LWardrobe plugin) {
         this.plugin = plugin;
         Bukkit.getPluginManager().registerEvents(this, plugin);
-        menu = new WardrobeMenu();
+        menu = new LWardrobeMenu();
     }
 
     @EventHandler
     public void onClick(@NotNull InventoryClickEvent event) {
         if (event.getClickedInventory() == null) return;
-        if (!(event.getInventory().getHolder() instanceof WardrobeMenu)) return;
+        if (!(event.getInventory().getHolder() instanceof LWardrobeMenu)) return;
         Player clicker = (Player) event.getWhoClicked();
         int clickedSlot = event.getSlot();
         // put in item shortcut
@@ -51,7 +51,7 @@ public class GUIFunction implements Listener {
             event.setCurrentItem(null);
             if (ButtonCheck.getCurrentButton(event.getInventory(), availableSlot).equals("empty")) {
                 event.getInventory().setItem(ButtonCheck.getButtonSlot(availableSlot),
-                        GUIItems.getReadyButton(clicker, GUIItems.getSlotHolder(availableSlot + 1, WardrobeMenu.getPlayerCurrentPage(clicker))));
+                        GUIItems.getReadyButton(clicker, GUIItems.getSlotHolder(availableSlot, LWardrobeMenu.getPlayerCurrentPage(clicker))));
             }
             clicker.updateInventory();
         // wardrobe gui function
@@ -72,10 +72,10 @@ public class GUIFunction implements Listener {
                     if (ArmorCheck.getArmorType(currentItem).equalsIgnoreCase("none")) return;
                     if (!ArmorCheck.enoughSpace(clicker, 1)) return;
                     clicker.getInventory().addItem(currentItem);
-                    wardrobeInv.setItem(clickedSlot, GUIItems.getAvailableSlot(clicker, clickedSlot,WardrobeMenu.getPlayerCurrentPage(clicker)));
+                    wardrobeInv.setItem(clickedSlot, GUIItems.getAvailableSlot(clicker, clickedSlot, LWardrobeMenu.getPlayerCurrentPage(clicker)));
                     clicker.updateInventory();
                     if (ArmorCheck.isSlotStillHaveArmor(wardrobeInv, clickedSlot))
-                        wardrobeInv.setItem(ButtonCheck.getButtonSlot(clickedSlot), GUIItems.getEmptyButton(clicker, GUIItems.getSlotHolder(clickedSlot + 1, WardrobeMenu.getPlayerCurrentPage(clicker))));
+                        wardrobeInv.setItem(ButtonCheck.getButtonSlot(clickedSlot), GUIItems.getEmptyButton(clicker, GUIItems.getSlotHolder(clickedSlot, LWardrobeMenu.getPlayerCurrentPage(clicker))));
                     return;
                 }
                 // put armor in by click
@@ -85,16 +85,16 @@ public class GUIFunction implements Listener {
                     wardrobeInv.setItem(clickedSlot, cursorItem);
                     clicker.setItemOnCursor(null);
                     if (ButtonCheck.getCurrentButton(wardrobeInv, clickedSlot).equals("empty"))
-                        wardrobeInv.setItem(ButtonCheck.getButtonSlot(clickedSlot), GUIItems.getReadyButton(clicker, GUIItems.getSlotHolder(clickedSlot + 1, WardrobeMenu.getPlayerCurrentPage(clicker))));
+                        wardrobeInv.setItem(ButtonCheck.getButtonSlot(clickedSlot), GUIItems.getReadyButton(clicker, GUIItems.getSlotHolder(clickedSlot, LWardrobeMenu.getPlayerCurrentPage(clicker))));
                 } else {
                     if (ArmorCheck.getArmorType(cursorItem).equalsIgnoreCase("none")) {
                         clicker.setItemOnCursor(currentItem);
-                        wardrobeInv.setItem(clickedSlot, new GUIItems((LWardrobe) LWardrobe.getInstance).getGUIItem(clicker, clickedSlot + 1, WardrobeMenu.getPlayerCurrentPage(clicker)));
+                        wardrobeInv.setItem(clickedSlot, GUIItems.getAvailableSlot(clicker, clickedSlot, LWardrobeMenu.getPlayerCurrentPage(clicker)));
                         if (ArmorCheck.isSlotStillHaveArmor(wardrobeInv, clickedSlot))
-                            wardrobeInv.setItem(ButtonCheck.getButtonSlot(clickedSlot), GUIItems.getEmptyButton(clicker, GUIItems.getSlotHolder(clickedSlot + 1, WardrobeMenu.getPlayerCurrentPage(clicker))));
+                            wardrobeInv.setItem(ButtonCheck.getButtonSlot(clickedSlot), GUIItems.getEmptyButton(clicker, GUIItems.getSlotHolder(clickedSlot, LWardrobeMenu.getPlayerCurrentPage(clicker))));
                         return;
                     }
-                    if (currentItem.isSimilar(cursorItem)) event.setCancelled(false);
+                    if (ArmorCheck.getArmorType(currentItem).equals(ArmorCheck.getArmorType(cursorItem))) event.setCancelled(false);
                 }
             }
             // slot button function
@@ -107,7 +107,7 @@ public class GUIFunction implements Listener {
                 ItemStack clickedItem = wardrobeInv.getItem(clickedSlot);
                 Material clickedItemType = clickedItem.getType();
                 if (GUIItems.lang.contains("Button.Next-Page.Slot") && clickedSlot == GUIItems.lang.getInt("Button.Next-Page.Slot") && clickedItemType == Material.ARROW) {
-                    menu.openPlayerWardrobe(clicker, WardrobeMenu.playerCurrentPage.get(clicker.getUniqueId()) + 1);
+                    menu.openPlayerWardrobe(clicker, LWardrobeMenu.playerCurrentPage.get(clicker.getUniqueId()) + 1);
                     clicker.playSound(clicker.getLocation(), Sound.UI_BUTTON_CLICK, 0.2F, 1);
                 } else if (GUIItems.lang.getBoolean("Button.Close.Enable") && GUIItems.lang.contains("Button.Close.Slot") && clickedSlot == GUIItems.lang.getInt("Button.Close.Slot") && clickedItemType == Material.BARRIER) {
                     clicker.closeInventory();
@@ -116,7 +116,7 @@ public class GUIFunction implements Listener {
                     clicker.performCommand(Lang.goBackCommand);
                     clicker.playSound(clicker.getLocation(), Sound.UI_BUTTON_CLICK, 0.2F, 1);
                 } else if (GUIItems.lang.contains("Button.Previous-Page.Slot") && clickedSlot == GUIItems.lang.getInt("Button.Previous-Page.Slot") && clickedItemType == Material.ARROW) {
-                    menu.openPlayerWardrobe(clicker, WardrobeMenu.playerCurrentPage.get(clicker.getUniqueId()) - 1);
+                    menu.openPlayerWardrobe(clicker, LWardrobeMenu.playerCurrentPage.get(clicker.getUniqueId()) - 1);
                     clicker.playSound(clicker.getLocation(), Sound.UI_BUTTON_CLICK, 0.2F, 1);
                 }
             }

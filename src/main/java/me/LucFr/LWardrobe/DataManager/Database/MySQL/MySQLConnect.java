@@ -1,6 +1,5 @@
 package me.LucFr.LWardrobe.DataManager.Database.MySQL;
 
-import me.LucFr.LWardrobe.FileManager.Config;
 import me.LucFr.LWardrobe.LWardrobe;
 
 import java.sql.*;
@@ -13,12 +12,12 @@ public class MySQLConnect {
     private final String username;
     private final String password;
 
-    public MySQLConnect(){
-        host = Config.dbHost;
-        port = Config.dbPort;
-        database = Config.dbDatabase;
-        username = Config.dbUsername;
-        password = Config.dbPassword;
+    public MySQLConnect(String host, String port, String database, String username, String password) {
+        this.host = host;
+        this.port = port;
+        this.database = database;
+        this.username = username;
+        this.password = password;
         try {
             connect();
         } catch (SQLException e) {
@@ -35,7 +34,7 @@ public class MySQLConnect {
         }
     }
 
-    public void shutdown() {
+    public static void shutdown() {
         disconnect();
     }
 
@@ -63,7 +62,7 @@ public class MySQLConnect {
         return false;
     }
 
-    private void disconnect() {
+    private static void disconnect() {
         if (isConnected()) {
             try {
                 connection.close();

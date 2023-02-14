@@ -2,7 +2,7 @@ package me.LucFr.LWardrobe.Commands;
 
 import me.LucFr.LWardrobe.FileManager.Config;
 import me.LucFr.LWardrobe.FileManager.Lang;
-import me.LucFr.LWardrobe.GUI.WardrobeMenu;
+import me.LucFr.LWardrobe.GUI.LWardrobeMenu;
 import me.LucFr.LWardrobe.Utils.TextWork;
 import me.LucFr.LWardrobe.LWardrobe;
 import org.bukkit.command.Command;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class CommandsRegister implements CommandExecutor {
 
     public LWardrobe plugin;
-    public static WardrobeMenu menu;
+    public static LWardrobeMenu menu;
 
     public static ArrayList<String> args0 = new ArrayList<>();
 
@@ -24,7 +24,7 @@ public class CommandsRegister implements CommandExecutor {
         this.plugin = plugin;
         plugin.getCommand("wardrobe").setExecutor(this);
         addCommands();
-        menu = new WardrobeMenu();
+        menu = new LWardrobeMenu();
     }
 
     @Override

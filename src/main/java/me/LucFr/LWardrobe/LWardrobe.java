@@ -3,7 +3,7 @@ package me.LucFr.LWardrobe;
 import me.LucFr.LWardrobe.Commands.CommandsRegister;
 import me.LucFr.LWardrobe.FileManager.Config;
 import me.LucFr.LWardrobe.FileManager.Lang;
-import me.LucFr.LWardrobe.GUI.WardrobeMenu;
+import me.LucFr.LWardrobe.GUI.LWardrobeMenu;
 import me.LucFr.LWardrobe.Listener.GUIOpenAndClose;
 import me.LucFr.LWardrobe.Listener.GUIFunction;
 import me.LucFr.LWardrobe.Metrics.UpdateChecker;
@@ -41,7 +41,10 @@ public final class LWardrobe extends JavaPlugin {
     @Override
     public void onDisable() {
         Bukkit.getOnlinePlayers().forEach(player -> {
-            if (player.getOpenInventory().getTopInventory().getHolder() instanceof WardrobeMenu) player.closeInventory();
+            if (player.getOpenInventory().getTopInventory().getHolder() instanceof LWardrobeMenu) {
+                GUIOpenAndClose.saveData(player, player.getOpenInventory().getTopInventory());
+                player.closeInventory();
+            }
         });
         config.shutdown();
     }
