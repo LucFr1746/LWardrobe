@@ -8,7 +8,7 @@ import me.LucFr.LWardrobe.Listener.GUIOpenAndClose;
 import me.LucFr.LWardrobe.Listener.GUIFunction;
 import me.LucFr.LWardrobe.Metrics.UpdateChecker;
 import me.LucFr.LWardrobe.Metrics.bStatsMetrics;
-import me.LucFr.LWardrobe.NMS.NMSMaterial;
+import me.LucFr.LWardrobe.Bridge.Materials;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -30,7 +30,7 @@ public final class LWardrobe extends JavaPlugin {
             lang = new Lang(this);
             config = new Config(this);
         // NMS Material
-            new NMSMaterial();
+            new Materials();
         // Listener
             new GUIFunction(this);
             new GUIOpenAndClose(this);

@@ -2,7 +2,7 @@ package me.LucFr.LWardrobe.GUI;
 
 import me.LucFr.LWardrobe.DataManager.Files.PlayerData;
 import me.LucFr.LWardrobe.FileManager.Config;
-import me.LucFr.LWardrobe.NMS.NMSMaterial;
+import me.LucFr.LWardrobe.Bridge.Materials;
 import me.LucFr.LWardrobe.Utils.DataConverter;
 import me.LucFr.LWardrobe.Utils.GUI.ArmorCheck;
 import me.LucFr.LWardrobe.Utils.ServerVersion;
@@ -116,10 +116,10 @@ public class GUIItems {
         ItemStack button;
         // base
         if (ServerVersion.isNewerThan("1.13"))
-            button = new ItemStack(Material.valueOf(NMSMaterial.Material_1_14_newer_Button.get("Equipped")));
+            button = new ItemStack(Material.valueOf(Materials.Material_1_14_newer_Button.get("Equipped")));
         else {
             button = new ItemStack(Material.valueOf("INK_SACK"));
-            button.setDurability(NMSMaterial.Material_1_12_older_Button.get("Equipped"));
+            button.setDurability(Materials.Material_1_12_older_Button.get("Equipped"));
         }
         ItemMeta buttonMeta = button.getItemMeta();
         // name
@@ -143,10 +143,10 @@ public class GUIItems {
         ItemStack button;
         // base
         if (ServerVersion.isNewerThan("1.13"))
-            button = new ItemStack(Material.valueOf(NMSMaterial.Material_1_14_newer_Button.get("Ready")));
+            button = new ItemStack(Material.valueOf(Materials.Material_1_14_newer_Button.get("Ready")));
         else {
             button = new ItemStack(Material.valueOf("INK_SACK"));
-            button.setDurability(NMSMaterial.Material_1_12_older_Button.get("Ready"));
+            button.setDurability(Materials.Material_1_12_older_Button.get("Ready"));
         }
         ItemMeta buttonMeta = button.getItemMeta();
         // name
@@ -171,10 +171,10 @@ public class GUIItems {
         ItemStack button;
         // base
         if (ServerVersion.isNewerThan("1.13"))
-            button = new ItemStack(Material.valueOf(NMSMaterial.Material_1_14_newer_Button.get("Empty")));
+            button = new ItemStack(Material.valueOf(Materials.Material_1_14_newer_Button.get("Empty")));
         else {
             button = new ItemStack(Material.valueOf("INK_SACK"));
-            button.setDurability(NMSMaterial.Material_1_12_older_Button.get("Empty"));
+            button.setDurability(Materials.Material_1_12_older_Button.get("Empty"));
         }
         ItemMeta buttonMeta = button.getItemMeta();
         // name
@@ -200,12 +200,12 @@ public class GUIItems {
         ItemStack button;
         // base
         if (ServerVersion.isVersion("1.13"))
-            button = new ItemStack(Material.valueOf(NMSMaterial.Material_1_13_newer_Button.get("Locked")));
+            button = new ItemStack(Material.valueOf(Materials.Material_1_13_newer_Button.get("Locked")));
         else if (ServerVersion.isNewerThan("1.14"))
-            button = new ItemStack(Material.valueOf(NMSMaterial.Material_1_14_newer_Button.get("Locked")));
+            button = new ItemStack(Material.valueOf(Materials.Material_1_14_newer_Button.get("Locked")));
         else {
             button = new ItemStack(Material.valueOf("INK_SACK"));
-            button.setDurability(NMSMaterial.Material_1_12_older_Button.get("Locked"));
+            button.setDurability(Materials.Material_1_12_older_Button.get("Locked"));
         }
         String requirePrefix = Config.requirePrefix.get(slotHolder);
         ItemMeta buttonMeta = button.getItemMeta();
@@ -234,10 +234,10 @@ public class GUIItems {
         ItemStack backGround;
         // base
         if (ServerVersion.isNewerThan("1.13"))
-            backGround = new ItemStack(Material.valueOf(NMSMaterial.Material_1_13_newer.get(slotHolder - ((page - 1) * 9))));
+            backGround = new ItemStack(Material.valueOf(Materials.Material_1_13_newer.get(slotHolder - ((page - 1) * 9))));
         else {
             backGround = new ItemStack(Material.valueOf("STAINED_GLASS_PANE"));
-            backGround.setDurability(NMSMaterial.Material_1_12_older.get(slotHolder - ((page - 1) * 9)));
+            backGround.setDurability(Materials.Material_1_12_older.get(slotHolder - ((page - 1) * 9)));
         }
         ItemMeta backGroundMeta = backGround.getItemMeta();
         String type = ArmorCheck.getSlotType(slot - 1);

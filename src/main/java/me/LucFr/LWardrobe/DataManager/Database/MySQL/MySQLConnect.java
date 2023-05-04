@@ -73,7 +73,7 @@ public class MySQLConnect {
         }
     }
 
-    public static Connection getConnection() {
+    public Connection getConnection() {
         return connection;
     }
 }

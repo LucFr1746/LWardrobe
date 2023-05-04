@@ -1,8 +1,8 @@
-package me.LucFr.LWardrobe.NMS;
+package me.LucFr.LWardrobe.Bridge;
 
 import java.util.HashMap;
 
-public class NMSMaterial {
+public class Materials {
 
     public static HashMap<Integer, String> Material_1_13_newer = new HashMap<>();
     public static HashMap<Integer, Short> Material_1_12_older = new HashMap<>();
@@ -11,7 +11,7 @@ public class NMSMaterial {
     public static HashMap<String, String> Material_1_13_newer_Button = new HashMap<>();
     public static HashMap<String, Short> Material_1_12_older_Button = new HashMap<>();
 
-    public NMSMaterial() {
+    public Materials() {
         Material_1_13_newer.put(1, "RED_STAINED_GLASS_PANE");
         Material_1_13_newer.put(2, "ORANGE_STAINED_GLASS_PANE");
         Material_1_13_newer.put(3, "YELLOW_STAINED_GLASS_PANE");

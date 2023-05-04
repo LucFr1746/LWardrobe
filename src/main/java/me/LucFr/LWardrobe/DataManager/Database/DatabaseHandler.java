@@ -29,13 +29,14 @@ public class DatabaseHandler {
             case "MySQL":
                 MySQLConnect mySQLConnect = new MySQLConnect(host, port, database, username, password);
                 connection = mySQLConnect.getConnection();
+            case "SQLite":
         }
         prepareDatabase();
     }
     private void prepareDatabase() {
         switch (type) {
             case "MySQL":
-
+            case "SQLite":
         }
     }
     private String getType() {
