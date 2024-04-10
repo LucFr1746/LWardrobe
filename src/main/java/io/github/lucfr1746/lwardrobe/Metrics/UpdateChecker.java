@@ -1,6 +1,6 @@
-package io.github.lucfr1746.LWardrobe.Metrics;
+package io.github.lucfr1746.lwardrobe.Metrics;
 
-import io.github.lucfr1746.LWardrobe.LWardrobe;
+import io.github.lucfr1746.lwardrobe.LWardrobe;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginDescriptionFile;

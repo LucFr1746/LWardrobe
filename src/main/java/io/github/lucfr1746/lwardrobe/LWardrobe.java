@@ -1,7 +1,7 @@
-package io.github.lucfr1746.LWardrobe;
+package io.github.lucfr1746.lwardrobe;
 
-import io.github.lucfr1746.LWardrobe.Metrics.UpdateChecker;
-import io.github.lucfr1746.LWardrobe.Metrics.bStatsMetrics;
+import io.github.lucfr1746.lwardrobe.Metrics.UpdateChecker;
+import io.github.lucfr1746.lwardrobe.Metrics.bStatsMetrics;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 

@@ -1,4 +1,4 @@
 name: LWardrobe
 version: '${project.version}'
-main: io.github.lucfr1746.LWardrobe.LWardrobe
+main: io.github.lucfr1746.lwardrobe.LWardrobe
 api-version: '1.20'

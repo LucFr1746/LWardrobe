@@ -1,4 +1,4 @@
-package io.github.lucfr1746.LWardrobe.Metrics;
+package io.github.lucfr1746.lwardrobe.Metrics;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
