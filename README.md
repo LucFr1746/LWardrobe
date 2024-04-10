@@ -16,18 +16,18 @@ Maintained by LucFr.
 </a>
 
 <br>
-    <a href="https://github.com/LucFr1746/Wardrobe/wiki">
+    <a href="https://github.com/LucFr1746/LWardrobe/wiki">
         <img src="https://img.shields.io/badge/Documentation-on%20Wiki-skyblue?style=for-the-badge&logo=wikipedia" alt="Documentation available on the Wiki">
     </a>
-    <a href="https://github.com/LucFr1746/Wardrobe">
+    <a href="https://github.com/LucFr1746/LWardrobe">
         <img src="https://img.shields.io/badge/Source%20Code-on%20GitHub-skyblue?style=for-the-badge&logo=github" alt="Source Code available on GitHub">
     </a>
 <br/>
 
-<a href="https://github.com/LucFr1746/Wardrobe/wiki/Credits">
+<a href="https://github.com/LucFr1746/LWardrobe/wiki/Credits">
     <img src="https://img.shields.io/badge/Contributors-View%20Credits-skyblue?style=for-the-badge" alt="Contributors listed in Credits Page">
 </a>
 
 ### [SpigotMC Resource Page](https://www.spigotmc.org/resources/94186/)
-#### [Installation Instructions](https://github.com/LucFr1746/Wardrobe/wiki/Installation)
+#### [Installation Instructions](https://github.com/LucFr1746/LWardrobe/wiki/Installation)
 </div>
