@@ -2,3 +2,14 @@ name: LWardrobe
 version: '${project.version}'
 main: io.github.lucfr1746.lwardrobe.LWardrobe
 api-version: '1.20'
+softdepend: [PlaceholderAPI]
+
+commands:
+  wardrobe:
+    aliases: wr
+    permission: wardrobe.use
+permissions:
+  wardrobe.*:
+    description: Gives access to all Wardrobe commands
+    children:
+      wardrobe.use: true

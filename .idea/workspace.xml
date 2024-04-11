@@ -9,11 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="475615e7-fc3d-4368-8e31-635883ed5a0a" name="Changes" comment="Added Utils">
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/lucfr1746/lwardrobe/DataManager/ItemStacks/ItemStacksDeserialize.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/lucfr1746/lwardrobe/DataManager/ItemStacks/ItemStacksSerialize.java" afterDir="false" />
+    <list default="true" id="475615e7-fc3d-4368-8e31-635883ed5a0a" name="Changes" comment="Added ItemStacks Serialize">
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/lucfr1746/lwardrobe/Utils/Placeholders/LPlaceholders.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/lucfr1746/lwardrobe/Utils/Placeholders/PlaceholderRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/lucfr1746/lwardrobe/LWardrobe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/lucfr1746/lwardrobe/LWardrobe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,14 +54,12 @@
     &quot;author&quot;: &quot;LucFr1746&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="85523606-e9ab-480d-84a9-9dc53492519a" />
-        <option name="url" value="https://github.com/LucFr1746/LWardrobe" />
-      </UrlAndAccount>
-    </option>
-  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/LucFr1746/LWardrobe&quot;,
+    &quot;accountId&quot;: &quot;85523606-e9ab-480d-84a9-9dc53492519a&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -87,7 +87,7 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/LucFr/OneDrive/Personal/Coding Space/Minecraft Coding/Minecraft Servers/Test/1.20.4 (Plugins Developement)/plugins&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/LucFr/OneDrive/Personal/Coding Space/Minecraft Coding/Projects/GiaLuc&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.18275861&quot;,
@@ -125,13 +125,6 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-22-openjdk-22-3183f394aec4-bad0321e" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -222,7 +215,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712736046785</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added ItemStacks Serialize">
+      <option name="closed" value="true" />
+      <created>1712738996786</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1712738996786</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -295,6 +296,7 @@
     <MESSAGE value="Added Metrics" />
     <MESSAGE value="Updated Readme.md" />
     <MESSAGE value="Added Utils" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Utils" />
+    <MESSAGE value="Added ItemStacks Serialize" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ItemStacks Serialize" />
   </component>
 </project>
