@@ -1,0 +1,117 @@
+############################################################
+# +------------------------------------------------------+ #
+# |                  LWardrobe Language                  | #
+# +------------------------------------------------------+ #
+############################################################
+
+#-------------------------------------------------
+#                     Console                    -
+#-------------------------------------------------
+
+# This command must be executed by a player.
+command-execute-by-player: "&cThis command must be executed by player!"
+
+#-------------------------------------------------
+#                   Player Chat                  -
+#-------------------------------------------------
+
+# Prefix of the plugin used in the player chat.
+in-game-plugin-prefix: "&a[LWardrobe] "
+
+# The message only admin can see.
+admin:
+  # Sent to the admin when the player not found.
+  player-not-found: "&cCan not find that player!"
+
+# Player can see the message.
+player:
+  # If this is set to true, when the player uses a denied command or an unknown command, it will use the message from "unknown-command" to send.
+  prevent-probe-command-toggle: true
+  # Sent to the player when the player tries to probe a command.
+  prevent-probe-command: '&fUnknown command. Type "/help" for help.'
+  # Sent to the player when using the wrong wardrobe command.
+  invalid-command: '&fUnknown command. Type "/wardrobe help" for help.'
+  # Sent to the player when the player hasn't had permission.
+  permission-denied: "&cYou do not have permission to perform this command."
+  # Sent to the player when an admin is checking their wardrobe and prevents them from opening the wardrobe.
+  checking-pending: "&cAn admin is checking your wardrobe right now!"
+  # Sent to the player when they're trying to equip the armors but have no space to get back the armors that aren't in the wardrobe.
+  not-enough-space: "&cYou don't have enough space in your inventory!"
+  # Sent to the player when they're trying to modify the equipped slot.
+  denied-modify: "&cYou cannot modify your equipped armor set!"
+  # Sent to the player when they're trying to equip the armors but still wearing binding cure armor.
+  is-wearing-binding-curse-armor: "&cYou are wearing binding curse armor, try to remove it and try again later!"
+
+#-------------------------------------------------
+#                 Wardrobe Items                 -
+#-------------------------------------------------
+
+# All text below can be "!none!" or leave it empty to not display in the GUI.
+# The name must be a string, not a list.
+# The lore can be a string and a list.
+
+locked-slot:
+  name: "&7Slot %slot%: &cLocked"
+  lore:
+    - "&7This wardrobe slot is locked and"
+    - "&7cannot be used."
+    - ""
+    - "&cRequires %slot_permission_require_prefix%"
+
+available-slot:
+  helmet:
+    name: "&aSlot %slot% Helmet"
+    lore:
+      - "&7Place a helmet here to add it"
+      - "&7to the armor set."
+  chestplate:
+    name: "&aSlot %slot% Chestplate"
+    lore:
+      - "&7Place a chestplate here to add"
+      - "&7it to the armor set."
+  leggings:
+    name: "&aSlot %slot% Leggings"
+    lore:
+      - "&7Place a pair of leggings here"
+      - "&7to add them to the armor set."
+  boots:
+    name: "&aSlot %slot% Boots"
+    lore:
+      - "&7Place a pair of boots here to"
+      - "&7add them to the armor set."
+
+button:
+  close:
+    enabled: true
+    slot: 49 # Must be between 45 and 53.
+    name: "&cClose"
+    lore: "!none!"
+  next-page:
+    slot: 53 # Must be between 45 and 53.
+    name: "&aNext Page"
+    lore:
+      - "&ePage %next_page%"
+  previous-page:
+    slot: 45 # Must be between 45 and 53.
+    name: "&aPrevious Page"
+    lore:
+      - "&ePage %previous_page%"
+  empty:
+    name: "&7Slot %slot%: &cEmpty"
+    lore:
+      - "&7This wardrobe slot contains no"
+      - "&7armor."
+  ready:
+    name: "&7Slot %slot%: &aReady"
+    lore:
+      - "&7This wardrobe slot is ready to"
+      - "&7be equipped."
+      - ""
+      - "&eClick to equip this armor set!"
+  equipped:
+    name: "&7Slot %slot%: &aEquipped"
+    lore:
+      - "&7This wardrobe slot contains your"
+      - "&7current armor set."
+      - ""
+      - "&eClick to unequip this armor set!"

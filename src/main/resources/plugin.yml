@@ -1,0 +1,11 @@
+name: LWardrobe
+version: '${project.version}'
+main: io.github.lucfr1746.LWardrobe.LWardrobe
+api-version: '1.21'
+
+depend: [ LLib ]
+
+commands:
+  wardrobe:
+    aliases: wr
+    permission: lwardrobe.use

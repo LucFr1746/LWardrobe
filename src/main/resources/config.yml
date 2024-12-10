@@ -1,0 +1,126 @@
+############################################################
+# +------------------------------------------------------+ #
+# |                   LWardrobe Config                   | #
+# +------------------------------------------------------+ #
+############################################################
+
+# Just for you to know when an update is released.
+update-checker: true
+
+# Select the language that the wardrobe will use to display to players.
+language: en_US
+
+# The powerful permission, if someone has this permission, is that they can access all the wardrobe functions.
+admin-permission: lwardrobe.admin
+
+# This is the title of the GUI that shows up for players.
+wardrobe-gui-title: "Wardrobe (%current_page%/%total_page%)"
+
+#-------------------------------------------------
+#                Slots Permission                -
+#-------------------------------------------------
+
+# The amount of slots that player in theory can have.
+total-slots: 18
+
+# If this is enabled, players without the slot's permission will see a description of how to access that slot.
+requirements-prefix: true
+
+# If this section is missing, it will automatically set the total slots to 18
+# Config the slot permission, in the example below, the player must have the permission "group.default" to be allowed to interact with slots 1 and 2.
+# You can set per slot permission like this
+# slots-permission:
+#   1:
+#     permission: permission.to.access.slot.1
+#     requirements-prefix: "&7permission.to.access.slot.1"
+#   2:
+#     permission: permission.to.access.slot.2
+#     requirements-prefix: "&7permission.to.access.slot.2"
+# Or you can set from slot to slot just like the example below.
+# It means if the player has the permission "group.default", that player can interact with slots 1 to 2 or "group.vip" to interact with slots 3 to 5 (3, 4, 5)
+slots-permission:
+  1-2:
+    permission: group.default
+    requirements-prefix: "&7DEFAULT"
+  3-5:
+    permission: group.vip
+    requirements-prefix: "&aVIP"
+  6-9:
+    permission: group.vip+
+    requirements-prefix: "&aVIP+"
+  10-13:
+    permission: group.mvp
+    requirements-prefix: "&bMVP"
+  14-18:
+    permission: group.mvp+
+    requirements-prefix: "&bMVP&c+"
+
+#-------------------------------------------------
+#                   Item Check                   -
+#-------------------------------------------------
+
+# This section will check if an item is legal to be put into the wardrobe.
+allow-item:
+  helmet-slots: # The slots allow you to put helmets on.
+    types: # Allow all types of helmets, unless you want to disable some specific types.
+      - LEATHER_HELMET
+      - CHAINMAIL_HELMET
+      - IRON_HELMET
+      - GOLDEN_HELMET
+      - DIAMOND_HELMET
+      - NETHERITE_HELMET
+      - TURTLE_HELMET
+      - PLAYER_HEAD
+      - ZOMBIE_HEAD
+      - CREEPER_HEAD
+      - PIGLIN_HEAD
+      - DRAGON_HEAD
+    special-checks:
+      # Only helmet-slots have this special checks.
+      # If the item passes 1 of the special checks below, it can be put into the wardrobe bypassing the list above.
+      # All of these checks can be set to "!none!" to skip checking.
+      # If the item has a line of lore that contains this string, it will be allowed to be put into the wardrobe.
+      # Supported a single string, not a list of strings.
+      lore: "HELMET"
+      # The wardrobe will go through all nbt tag of the item, if the item has this tag, it will be allowed to be put into the wardrobe.
+      nbt-tag:
+        key: "category"
+        value: "HELMET"
+  chestplate-slots: # The slots allow you to put chestplate on.
+    types: # Allow all types of chestplate, unless you want to disable some specific types.
+      - LEATHER_CHESTPLATE
+      - CHAINMAIL_CHESTPLATE
+      - IRON_CHESTPLATE
+      - GOLDEN_CHESTPLATE
+      - DIAMOND_CHESTPLATE
+      - NETHERITE_CHESTPLATE
+  leggings-slots: # The slots allow you to put leggings on.
+    types: # Allow all types of leggings, unless you want to disable some specific types.
+      - LEATHER_LEGGINGS
+      - CHAINMAIL_LEGGINGS
+      - IRON_LEGGINGS
+      - GOLDEN_LEGGINGS
+      - DIAMOND_LEGGINGS
+      - NETHERITE_LEGGINGS
+  boots-slots: # The slots allow you to put boots on.
+    types: # Allow all types of boots, unless you want to disable some specific types.
+      - LEATHER_BOOTS
+      - CHAINMAIL_BOOTS
+      - IRON_BOOTS
+      - GOLDEN_BOOTS
+      - DIAMOND_BOOTS
+      - NETHERITE_BOOTS
+
+# This section will check if an item is illegal to be put into the wardrobe.
+deny-item:
+  # All of these checks can be set to "!none!" to skip checking.
+  # If the item has one of these enchantments, it won't be allowed to be put into the wardrobe.
+  black-list-enchantments: # "!none!"
+    - binding_curse
+  # If the item has a line of lore that contains this string, it won't be allowed to be put into the wardrobe.
+  # Supported a single string, not a list of strings.
+  lore: "!none!"
+  # The wardrobe will go through all nbt tag of the item, if the item has this tag, it won't be allowed to be put into the wardrobe.
+  nbt-tag:
+    key: "!none!"
+    value: "!none!"
