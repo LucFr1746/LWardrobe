@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://i.imgur.com/7Hmc1dD.png" width="1000" height="250" alt="Wardrobe Banner">
+<img src="https://i.imgur.com/7Hmc1dD.png" alt="Wardrobe Banner">
 
 # Welcome to LWardrobe
 
